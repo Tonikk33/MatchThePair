@@ -1,0 +1,58 @@
+<div style="display: block">
+
+  <div>
+    <div class="Block">
+      <input type="file" (change)="changeListener($event)"><br>
+      <p class="content"></p>
+    </div>
+
+
+    <div *ngIf="tableData.length > 0">
+      <h3>Employee && Projects</h3>
+      <p-table [columns]="cols" [value]="tableData" responsiveLayout="scroll">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div>
+
+      </div>
+
+    </div>
+
+    <div *ngIf="totalDaysData.length > 0">
+      <h3>Employee Worked Together</h3>
+      <p-table [columns]="colsTotal" [value]="totalDaysData" responsiveLayout="scroll">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      <div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
